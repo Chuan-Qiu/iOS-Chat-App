@@ -86,12 +86,10 @@ Screenshots/
 <p float="left">
   <img src="Screenshots/Sign_In__Register.png" width="250"/>
   <img src="Screenshots/Register_Screen.png" width="250"/>
+    <img src="Screenshots/Log_Out.png" width="250"/>
 </p>
 <p float="left">
-  <img src="Screenshots/Log_Out.png" width="250"/>
   <img src="Screenshots/Chat_List_Screen.png" width="250"/>
-</p>
-<p float="left">
   <img src="Screenshots/Chat_List_Screen_When_Not_Signed_In.png" width="250"/>
   <img src="Screenshots/Chat_Screen.png" width="250"/>
 </p>
