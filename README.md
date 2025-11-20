@@ -83,12 +83,12 @@ Screenshots/
 
 **Example in README**:
 
-![Sign In/Register](Screenshots/Sign In: Register.png)
-![Register Screen](Screenshots/Register Screen.png)
-![Log Out](Screenshots/Log Out.png)
-![Chat List Screen](Screenshots/Chat List Screen.png)
-![Chat List Screen When Not Signed In](Screenshots/Chat List Screen When Not Signed In.png)
-![Chat Screen](Screenshots/Chat Screen.png)
+![Sign In/Register](Screenshots/Sign_In__Register.png)
+![Register Screen](Screenshots/Register_Screen.png)
+![Log Out](Screenshots/Log_Out.png)
+![Chat List Screen](Screenshots/Chat_List_Screen.png)
+![Chat List Screen When Not Signed In](Screenshots/Chat_List_Screen_When_Not_Signed_In.png)
+![Chat Screen](Screenshots/Chat_Screen.png)
 
 ---
 
