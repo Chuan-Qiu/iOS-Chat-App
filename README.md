@@ -69,8 +69,6 @@ Firestore/
 
 ## 📸 Screenshots
 
-*(Place your images inside a folder named `Screenshots/` and reference them like this)*
-
 ```
 Screenshots/
 ├── Sign In/Register.png
