@@ -1,124 +1,138 @@
-# iOS Chat App
-
-A real-time one-on-one chat application built for iOS using **Firebase Authentication** and **Cloud Firestore**.  
-This project demonstrates secure user auth, cloud-hosted messaging, dynamic chat UI, and clean modular architecture suitable for mobile portfolio presentation.
-
----
-
-## 📱 Features
-
-### **Authentication**
-- Register with name, email, password, and password confirmation  
-- Login / Logout with Firebase Authentication  
-- Input validation with user-friendly alert messages  
-- Persistent user session until manual logout  
-
-### **Real-Time Chat**
-- One-on-one messaging between all authenticated users  
-- Real-time message sync powered by Firestore snapshot listeners  
-- Automatic scroll-to-latest message  
-- Chat history persisted across sessions  
-- Timestamp formatting for readable message metadata  
-
-### **Chat UI**
-- WhatsApp-style left/right aligned message bubbles  
-- Dynamic cell layouts showing:
-  - Sender name
-  - Message text
-  - Timestamp  
-- Clean, responsive Auto Layout  
-- Separated cells for "self" vs "friend" messages  
+# 📱 iOS Chat App  
+A real-time one-on-one chat application built with **iOS UIKit**, **Firebase Authentication**, and **Firestore**.  
+Users can register, log in, and exchange messages with other authenticated users—similar to WhatsApp or Messenger.
 
 ---
 
-## 🧱 Architecture
+## 🚀 Features
 
-iOS-Chat-App
-│
-├── Authentication
-│ ├── LoginViewController
-│ ├── RegisterViewController
-│ └── AuthManager (Firebase Authentication wrapper)
-│
-├── Chat
-│ ├── ChatListViewController
-│ ├── ChatViewController
-│ ├── Message.swift
-│ ├── ChatService (Firestore CRUD + listeners)
-│ └── MessageCell (self / friend variants)
-│
-└── Shared
-├── User.swift
-├── Extensions (UI helpers / formatting)
-└── Utilities (alerts, constants, etc.)
+- **🔐 Firebase Authentication**  
+  - User registration (name, email, password + confirmation)  
+  - Secure login & logout  
+  - Input validation & error alerts
 
-### **Key Principles**
-- MVVM-lite style separation  
-- Firebase service classes isolate networking logic  
-- Reusable UI components for cleaner controllers  
-- Snapshot listeners push updates reactively  
-- All user input validated before backend operations  
+- **💬 Real-Time One-on-One Chat**  
+  - Firestore snapshot listeners for instant updates  
+  - Persistent chat history  
+  - Automatic scroll-to-latest messages  
+  - Timestamped message bubbles
+
+- **🎨 Clean Messenger-Style UI**  
+  - Right-aligned bubbles for self, left-aligned for friends  
+  - Lightweight, reusable table view cells  
+  - Adaptive Auto Layout for all screen sizes
 
 ---
 
-## 🗄️ Firebase Structure
+## 📁 Architecture
 
-### **Authentication**
-- Email/Password Auth  
-- DisplayName stored with user profile  
+```
+iOS-Chat-App/
+├── AppDelegate.swift
+├── SceneDelegate.swift
+├── Models/
+│   ├── ChatMessage.swift
+│   └── User.swift
+├── Views/
+│   ├── ChatCellSelf.swift
+│   ├── ChatCellFriend.swift
+│   └── LoginView.swift (if applicable)
+├── Controllers/
+│   ├── LoginViewController.swift
+│   ├── RegisterViewController.swift
+│   ├── ChatListViewController.swift
+│   └── ChatViewController.swift
+└── Services/
+    ├── FirebaseAuthManager.swift
+    └── FirestoreChatManager.swift
+```
 
-### **Firestore**
-messages (collection)
-└── chatRoomID (document)
-└── messages (subcollection)
-├── messageID
-│ ├── senderID
-│ ├── senderName
-│ ├── text
-│ ├── timestamp
-│ └── isSelf
+---
+
+## 🗄️ Firestore Data Structure
+
+```
+Firestore/
+└── chats/
+    └── {chatID}/
+        ├── participants: [userA, userB]
+        └── messages/
+            ├── {messageID}/
+            │   ├── senderID: "uid"
+            │   ├── senderName: "Alice"
+            │   ├── text: "Hello!"
+            │   ├── timestamp: 2024-01-01T00:00:00Z
+            │   └── isSelf: true/false
+```
 
 ---
 
 ## 📸 Screenshots
 
-> Place your images in:  
-> **/ScreenShots** (create this folder in the repo root)  
->  
-> Then reference like:  
-> `![Chat Screen](ScreenShots/chat_screen.png)`
+*(Place your images inside a folder named `Screenshots/` and reference them like this)*
 
-_Add your screenshots here after uploading._
+```
+Screenshots/
+├── login.png
+├── chat_list.png
+└── chat_room.png
+```
+
+**Example in README**:
+
+![Chat Room](Screenshots/chat_room.png)
 
 ---
 
-## 🚀 How to Run
+## 🛠️ Tech Stack
 
-1. Clone the repo  
-   ```bash
-   git clone git@github.com:Chuan-Qiu/iOS-Chat-App.git
-Open the project
-open iOS-Chat-App.xcodeproj
-Add your GoogleService-Info.plist to the Xcode project root
-Run on an iOS Simulator or physical device
-🧪 Requirements
-iOS 15+
-Xcode 14+
-Swift 5
-CocoaPods / SPM not required (Firebase added via project configuration)
-🔐 Security Notes
-API keys are handled using Firebase recommended configuration
-No private code or school assignment requirements are included
-Sensitive logic is encapsulated in local service classes
-🧭 Future Work (Optional)
-Support image messages
-Add typing indicator
-Group chat rooms
-Push notifications via Firebase Cloud Messaging
-Online/Offline presence tracking
-Profile pictures stored in Firebase Storage
-👥 Teamwork Notes
-Originally developed as part of a team assignment; this repository contains only clean, public-safe, non-school-restricted code.
-📄 License
-This project is available for portfolio demonstration purposes.
-Commercial or production use is not permitted.
+- **Language:** Swift  
+- **Framework:** UIKit  
+- **Backend:** Firebase Authentication, Cloud Firestore  
+- **Architecture:** MVC + Service Layer  
+- **Tools:** Git, Xcode, CocoaPods / SPM  
+
+---
+
+## 📦 Installation
+
+1. Clone the repository  
+   ```sh
+   git clone https://github.com/Chuan-Qiu/iOS-Chat-App.git
+   cd iOS-Chat-App
+   ```
+
+2. Open the project  
+   ```
+   open iOS-Chat-App.xcodeproj
+   ```
+
+3. Configure your Firebase project  
+   - Download **GoogleService-Info.plist**  
+   - Put it into the Xcode project root  
+   - (Optional) Enable email/password login in Firebase Console  
+
+4. Build & run on simulator or device.
+
+---
+
+## 📄 License
+
+Private source code — available upon request for recruiting purposes.
+
+---
+
+## 🔮 Future Work
+
+- Add profile pictures & user presence  
+- Push notifications (Firebase Cloud Messaging)  
+- Group chat support  
+- Dark mode UI  
+- Message attachments (images, files)
+
+---
+
+## 👤 Author
+
+**Chance Qiu**  
+GitHub: https://github.com/Chuan-Qiu  
