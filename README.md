@@ -30,15 +30,15 @@ Users can register, log in, and exchange messages with other authenticated users
 iOS-Chat-App/
 ├── AppDelegate.swift
 ├── SceneDelegate.swift
-├── Models/
-│   ├── ChatMessage.swift
-│   └── User.swift
+├── Data Models/
+│   ├── Message.swift
+│   └── UserPublic.swift
 ├── Views/
-│   ├── ChatCellSelf.swift
-│   ├── ChatCellFriend.swift
-│   └── LoginView.swift (if applicable)
+│   ├── BubbleTableViewCell.swift
+│   ├── ChatView.swift
+|   ├── ChatListView
+│   └── RegisterView.swift
 ├── Controllers/
-│   ├── LoginViewController.swift
 │   ├── RegisterViewController.swift
 │   ├── ChatListViewController.swift
 │   └── ChatViewController.swift
@@ -53,16 +53,16 @@ iOS-Chat-App/
 
 ```
 Firestore/
-└── chats/
-    └── {chatID}/
-        ├── participants: [userA, userB]
-        └── messages/
-            ├── {messageID}/
-                ├── senderID: "uid"
-                ├── senderName: "Alice"
-                ├── text: "Hello!"
-                ├── timestamp: 2024-01-01T00:00:00Z
-                └── isSelf: true/false
+└── users/
+    └── {user account}/
+        └──chats/
+          └── messages/
+              └── friend account/
+                ├── {messageID}/
+                    ├── createdAt: 2024-01-01T00:00:00Z
+                    ├── senderEmail: "email"
+                    ├── senderName: "Alice"
+                    └── text: "Hello!"
 ```
 
 ---
@@ -73,14 +73,22 @@ Firestore/
 
 ```
 Screenshots/
-├── login.png
-├── chat_list.png
-└── chat_room.png
+├── Sign In/Register.png
+├── Register Screen
+├── Log Out
+├── Chat List Screen.png
+├── Chat List Screen When Not Signed In.png
+└── Chat Screen
 ```
 
 **Example in README**:
 
-![Chat Room](Screenshots/chat_room.png)
+![Sign In/Register](Screenshots/Sign In: Register.png)
+![Register Screen](Screenshots/Register Screen.png)
+![Log Out](Screenshots/Log Out.png)
+![Chat List Screen](Screenshots/Chat List Screen.png)
+![Chat List Screen When Not Signed In](Screenshots/Chat List Screen When Not Signed In.png)
+![Chat Screen](Screenshots/Chat Screen.png)
 
 ---
 
