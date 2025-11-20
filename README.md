@@ -58,11 +58,11 @@ Firestore/
         ├── participants: [userA, userB]
         └── messages/
             ├── {messageID}/
-            │   ├── senderID: "uid"
-            │   ├── senderName: "Alice"
-            │   ├── text: "Hello!"
-            │   ├── timestamp: 2024-01-01T00:00:00Z
-            │   └── isSelf: true/false
+                ├── senderID: "uid"
+                ├── senderName: "Alice"
+                ├── text: "Hello!"
+                ├── timestamp: 2024-01-01T00:00:00Z
+                └── isSelf: true/false
 ```
 
 ---
